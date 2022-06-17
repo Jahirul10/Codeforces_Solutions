@@ -1,0 +1,54 @@
+    #include<bits/stdc++.h>
+    #define ll long long int
+    using namespace std;
+    int main()
+    {
+        int t;
+        cin>>t;
+        while(t--)
+        {
+            int a,b;
+            cin>>a>>b;
+            string ones[201],zeros[201];
+            for(int i=0; i<201;i++)
+            {
+                ones[i]='1';
+                zeros[i]='0';
+            }
+            int len=a+b,k=0;
+            if(a>b)
+            {
+                int j=1;
+                for(int i=0; i<len; i++)
+                {
+                    zeros[i+j]='1';
+                    k++;
+                    j++;
+                    if(k==b)break;
+                }
+                for(int i=0; i<len; i++)
+                {
+                    cout<<zeros[i];
+                }
+                cout<<endl;
+            }
+            else
+            {
+                int j=1;
+                for(int i=0; i<len; i++)
+                {
+                    ones[i+j]='0';
+                    k++;
+                    j++;
+                    if(k==a)break;
+                }
+                for(int i=0; i<len; i++)
+                {
+                    cout<<ones[i];
+                }
+                cout<<endl;
+            }
+     
+        }
+        return 0;
+    }
