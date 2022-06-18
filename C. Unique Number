@@ -1,0 +1,39 @@
+    #include<bits/stdc++.h>
+    #define ll long long int
+    using namespace std;
+    int solve(int n)
+    {
+        ll sum=0,i=9,j=0;
+        while(n>0)
+        {
+               if(sum!=i)
+                {
+                    if(i<n)n=n-i;
+                    else
+                    {
+                        i=n;
+                        n=0;
+                    }
+                    sum=i*pow(10,j)+sum;
+                    i--;
+                    j++;
+                }
+                else i--;
+        }
+        return sum;
+    }
+    int main()
+    {
+        ll t,n;
+        cin>>t;
+        while(t--)
+        {
+            cin>>n;
+            ll ans;
+            if(n<10)ans=n;
+            else if(n<46)ans=solve(n);
+            else ans=-1;
+            cout<<ans<<endl;
+        }
+        return 0;
+    }
